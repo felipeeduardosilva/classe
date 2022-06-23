@@ -1,0 +1,33 @@
+CREATE TABLE empregados(
+    matricula int PRIMARY KEY,
+    nome varchar(30),
+    cod_dep int REFERENCES departamento(cod)
+);
+CREATE TABLE departamento(
+    cod int PRIMARY KEY,
+    nome varchar(20)
+);
+CREATE TABLE projeto(
+    cod_projeto int PRIMARY KEY,
+    nome varchar(20),
+    gerente int REFERENCES empregados(matricula)
+);
+
+
+insert into departamento values
+    (132,"Gerencia"),
+    (578,"RH"),
+    (124,"DP"),
+    (456,"Almoxarifado");
+    
+insert into empregados values
+    (01,"Felipe Silva",132),
+    (02,"Felipe Eduardo",578),
+    (03,"Felipe lopes",124),
+    (04,"Felipe lypi",456);
+
+insert into projeto values
+    (790,"Projeto pyton",01),
+    (331,"Projeto sempre vida",02),
+    (450,"Projeto familia",03),
+    (990,"Projeto iphone",04);
